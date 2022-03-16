@@ -1,0 +1,13 @@
+<mvc:View controllerName="esercitazione.controller.HomePage"
+    xmlns="sap.m" 
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns:form="sap.ui.layout.form"
+    height="100%">
+    <App id="HomePage">
+    <Page title="Esercitazioni" enableScrolling="true" class="sapUiResponsivePadding--header sapUiResponsivePadding--footer">
+        <content>
+            <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Esercizio_1" press="Es1" frameType= "TwoByOne"/>
+        </content>
+    </Page>
+    </App>
+</mvc:View>

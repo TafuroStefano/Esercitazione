@@ -1,0 +1,100 @@
+<mvc:View controllerName="esercitazione.controller.Esercizio1"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns:form="sap.ui.layout.form"
+    height="100%">
+    <App id="Esercizio1">
+        <Page title="Esercizio1" enableScrolling="true" class="sapUiResponsivePadding--header sapUiResponsivePadding--footer" navButtonPress="BackHome" showNavButton="true">
+            <content>
+                <HBox>
+                    <Button text="CloneFirstRow" press="CloneFirstRow">
+                        <layoutData>
+                            <FlexItemData growFactor="1" />
+                        </layoutData>
+                    </Button>
+                    <Button text="create" press="Create">
+                        <layoutData>
+                            <FlexItemData growFactor="1" />
+                        </layoutData>
+                    </Button>
+                </HBox>
+                <Table
+                    alternateRowColors ="true"
+                    id="invoiceList"
+                    headerText="Products"
+                    class="saUiResponsiveMargin"
+                    width="auto"
+                    items="{ 
+                        path: 'Data>/results',
+                        sorter: {
+                            path: 'ShipperName',
+                            group: true
+                            }}">
+                    <headerToolbar>
+                        <Toolbar>
+                            <Title text="Products"/>
+                            <ToolbarSpacer/>
+                            <SearchField width="50%" search="onFilterInvoices"/>
+                        </Toolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column
+                            hAlign="End"
+                            minScreenWidth="Small"
+                            demandPopin="true"
+                            width="4em">
+                            <Text text="Name"/>
+                        </Column>
+                        <Column>
+                            <Text text="Description"/>
+                        </Column>
+                        <Column
+                        minScreenWidth="small"
+                        demandPopin="true">
+                            <Text text="RelaseDate"/>
+                        </Column>
+                        <Column 
+                        minScreenWidth="Tablet"
+                        demandPopin="false">
+                            <Text text="DiscontinuedDate"/>
+                        </Column>
+                        <Column
+                        hAlign="End">
+                            <Text text="Rating"/>
+                        </Column>
+                        <Column
+                        hAlign="End">
+                            <Text text="Price"/>
+                        </Column>
+                        <Column
+                        hAlign="End">
+                            <Text text="Clone"/>
+                        </Column>
+                        <Column
+                        hAlign="End">
+                            <Text text="Delete"/>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem
+                        type="Navigation"
+                        press="onPress">
+                            <cells>
+                                <Text text="{Data>Name}"/>
+                                <Text text="{Data>Description}"/>
+                                <Text text="{Data>ReleaseDate}"/>
+                                <Text text="{Data>DiscontinuedDate}"/>
+                                <Text text="{Data>Rating}"/>
+                                <ObjectNumber   
+                                    number="{Data>Price}"
+                                    state="{= ${Data>Price} >= 40 ? 'Error' : (${Data>Price} &lt; 40 &amp;&amp; ${Data>Price} >= 20) ? 'Warning' : 'Success' }"/>
+                                <Button text= "Clone" press="Clone"/>
+                                <Button text= "Delete" press="DeleteMessageBoxPress"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </content>
+        </Page>
+    </App>
+</mvc:View>

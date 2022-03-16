@@ -1,0 +1,49 @@
+<mvc:View controllerName="esercitazione.controller.Detail"
+    xmlns="sap.m" 
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns:f="sap.ui.layout.form"
+    height="100%">
+    <App id="Detail">
+        <Page title="Detail" enableScrolling="true" class="sapUiResponsivePadding--header sapUiResponsivePadding--footer" navButtonPress="Back" showNavButton="true">
+            <content>
+                <Text class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"/>
+                <f:SimpleForm>
+                    <f:content>
+                        <Label text="Name"/>
+                        <Text text="{Detail>/Name}"/>
+                        <Label text="Description"/>
+                        <Text text="{Detail>/Description}"/>
+                        <Label text="Release Date"/>
+                        <Text text="{Detail>/ReleaseDate}"/>
+                        <Label text="Discontinued Date"/>
+                        <Text text="{Detail>/DiscontinuedDate}"/>
+                        <Label text="Rating"/>
+                        <Text text="{Detail>/Rating}"/>
+                        <Label text="Price"/>
+                        <Text text="{Detail>/Price}"/>
+                        <Label text="Category Id"/>
+                        <Text text="{Detail>/Category/ID}"/>
+                        <Label text="Category Name"/>
+                        <Text text="{Detail>/Category/Name}"/>
+                        <Label text="Supplier Id"/>
+                        <Text text="{Detail>/Supplier/ID}"/>
+                        <Label text="Supplier name"/>
+                        <Text text="{Detail>/Supplier/Name}"/>
+                        <Label text="Supplier Address Street"/>
+                        <Text text="{Detail>/Supplier/Address/Street}"/>
+                        <Label text="Supplier Address city"/>
+                        <Text text="{Detail>/Supplier/Address/City}"/>
+                        <Label text="Supplier Address state"/>
+                        <Text text="{Detail>/Supplier/Address/State}"/>
+                        <Label text="Supplier Address Zipcode"/>
+                        <Text text="{Detail>/Supplier/Address/ZipCode}"/>
+                        <Label text="Supplier Address Country"/>
+                        <Text text="{Detail>/Supplier/Address/Country}"/>
+                        <Label text="Supplier Concurrency"/>
+                        <Text text="{Detail>/Supplier/Concurrency}"/>
+                    </f:content>
+                </f:SimpleForm>
+            </content>
+        </Page>
+    </App>
+</mvc:View>
