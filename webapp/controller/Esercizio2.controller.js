@@ -7,7 +7,7 @@ sap.ui.define([
     "sap/m/Text",
     "sap/m/Input",
     "sap/m/MessageBox",
-    "sap/m/MessageToast"
+    "sap/m/MessageToast" 
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller

@@ -3,6 +3,7 @@
     xmlns:mvc="sap.ui.core.mvc"
 	xmlns:form="sap.ui.layout.form"
     height="100%">
+    
     <App id="Esercizio2">
         <Page enableScrolling="true" class="sapUiResponsivePadding--header sapUiResponsivePadding--footer">
             <customHeader>
