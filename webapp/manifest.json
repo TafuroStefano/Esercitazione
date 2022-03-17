@@ -99,6 +99,11 @@
             "target": "Esercizio1"
         },
         {
+          "pattern": "Esercizio2",
+          "name": "Esercizio2",
+          "target": "Esercizio2"
+      },
+        {
           "name": "Detail",
           "pattern": "Detail/{id}",
           "target": "Detail"
@@ -115,6 +120,10 @@
         "Esercizio1":{
           "viewId": "Esercizio1",
           "viewName":"Esercizio1"
+        },
+        "Esercizio2":{
+          "viewId": "Esercizio2",
+          "viewName":"Esercizio2"
         },
         "Detail":{
           "viewId": "Detail",

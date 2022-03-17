@@ -7,6 +7,7 @@
     <Page title="Esercitazioni" enableScrolling="true" class="sapUiResponsivePadding--header sapUiResponsivePadding--footer">
         <content>
             <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Esercizio_1" press="Es1" frameType= "TwoByOne"/>
+            <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Esercizio_2" press="Es2" frameType= "TwoByOne"/>
         </content>
     </Page>
     </App>

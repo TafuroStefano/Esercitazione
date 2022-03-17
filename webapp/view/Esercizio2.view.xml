@@ -1,0 +1,70 @@
+<mvc:View xmlns:vk="sap.ui.vk" controllerName="esercitazione.controller.Esercizio2"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns:form="sap.ui.layout.form"
+    height="100%">
+    <App id="Esercizio2">
+        <Page enableScrolling="true" class="sapUiResponsivePadding--header sapUiResponsivePadding--footer">
+            <customHeader>
+                <Bar>
+                    <contentLeft>
+                        <Button icon="sap-icon://nav-back" press="BackHome"/>
+                    </contentLeft>
+                    <contentMiddle>
+                        <Title text="Esercizio2" level="H2"/>
+                    </contentMiddle>
+                    <contentRight>
+                        <Button icon="sap-icon://edit" text="Edit table" press="Edit" visible="{Esercizio2>/isBtnEditVisible}"/>
+                        <Button type="Accept" icon="sap-icon://save" text="Save" press="Save" visible="{Esercizio2>/isBtnSaveVisible}"/>
+                        <Button type="Reject" icon="sap-icon://cancel" text="Cancel" press="Cancel" visible="{Esercizio2>/isBtnCancelVisible}"/>
+                    </contentRight>
+                </Bar>
+            </customHeader>
+            <content>
+                <Table
+                    alternateRowColors ="true"
+                    id="table2"
+                    headerText="Products"
+                    class="saUiResponsiveMargin"
+                    width="auto">
+                    <headerToolbar>
+                        <Toolbar>
+                            <Title text="Products"/>
+                            <ToolbarSpacer/>
+                            <SearchField width="50%" search="onFilterInvoices"/>
+                        </Toolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column
+                            hAlign="End"
+                            minScreenWidth="Small"
+                            demandPopin="true">
+                            <Text text="Name"/>
+                        </Column>
+                        <Column>
+                            <Text text="Description"/>
+                        </Column>
+                        <Column
+                        minScreenWidth="small"
+                        demandPopin="true">
+                            <Text text="RelaseDate"/>
+                        </Column>
+                        <Column 
+                        minScreenWidth="Tablet"
+                        demandPopin="false">
+                            <Text text="DiscontinuedDate"/>
+                        </Column>
+                        <Column
+                        hAlign="End">
+                            <Text text="Rating"/>
+                        </Column>
+                        <Column
+                        hAlign="End">
+                            <Text text="Price"/>
+                        </Column>
+                    </columns>
+                </Table>
+            </content>
+        </Page>
+    </App>
+</mvc:View>
