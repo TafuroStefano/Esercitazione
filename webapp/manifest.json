@@ -12,7 +12,7 @@
     "resources": "resources.json",
     "dataSources": {
       "mainService": {
-        "uri": "/V2/(S(c3ctfpad1wtz3lwcjwfj5zmi))/OData/OData.svc/",
+        "uri": "/V2/(S(w4a24buoabizxovmu0k0tlre))/OData/OData.svc/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -94,20 +94,27 @@
           "target": "HomePage"
         },
         {
-            "pattern": "Esercizio1",
-            "name": "Esercizio1",
-            "target": "Esercizio1"
+          "pattern": "Esercizio1",
+          "name": "Esercizio1",
+          "target": "Esercizio1"
+        },
+        {
+          "name": "Detail",
+          "pattern": "Detail/{id}",
+          "target": "Detail"
         },
         {
           "pattern": "Esercizio2",
           "name": "Esercizio2",
           "target": "Esercizio2"
-      },
+        },
         {
-          "name": "Detail",
-          "pattern": "Detail/{id}",
-          "target": "Detail"
+        "pattern": "Esercizio3",
+        "name": "Esercizio3",
+        "target": "Esercizio3"
         }
+        
+
       ],
       "targets": {
         "HomePage": {
@@ -121,13 +128,18 @@
           "viewId": "Esercizio1",
           "viewName":"Esercizio1"
         },
+        "Detail":{
+          "viewId": "Detail",
+          "viewName": "Detail"
+        },
+
         "Esercizio2":{
           "viewId": "Esercizio2",
           "viewName":"Esercizio2" 
         },
-        "Detail":{
-          "viewId": "Detail",
-          "viewName": "Detail"
+        "Esercizio3":{
+          "viewId": "Esercizio3",
+          "viewName":"Esercizio3" 
         }
       }
     },

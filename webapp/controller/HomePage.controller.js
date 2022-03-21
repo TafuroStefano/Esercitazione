@@ -18,6 +18,10 @@ sap.ui.define([
             Es2: function (oEvent) { 
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("Esercizio2");
+            },
+            Es3: function (oEvent) { 
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.navTo("Esercizio3");
             }
             
         });

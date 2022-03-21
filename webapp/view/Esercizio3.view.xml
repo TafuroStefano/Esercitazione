@@ -1,0 +1,77 @@
+<mvc:View xmlns:vk="sap.ui.vk" controllerName="esercitazione.controller.Esercizio3"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns:form="sap.ui.layout.form"
+    height="100%">
+    
+    <App id="Esercizio3">
+        <Page enableScrolling="true" class="sapUiResponsivePadding--header sapUiResponsivePadding--footer">
+            <customHeader>
+                <Bar>
+                    <contentLeft>
+                        <Button icon="sap-icon://nav-back" press="BackHome"/>
+                    </contentLeft>
+                    <contentMiddle>
+                        <Title text="Esercizio3" level="H2"/>
+                    </contentMiddle>
+                    <contentRight>
+                        <Button icon="sap-icon://edit" text="Edit table" press="Edit" visible="{Esercizio3>/isBtnEditVisible}"/>
+                        <Button type="Accept" icon="sap-icon://save" text="Save" press="Save" visible="{Esercizio3>/isBtnSaveVisible}"/>
+                        <Button type="Reject" icon="sap-icon://cancel" text="Cancel" press="Cancel" visible="{Esercizio3>/isBtnCancelVisible}"/>
+                        <Button id="button" text="Theme" press="onPress" ariaHasPopup="Menu"/>
+                        <Button text="Export" press="Esporta" />
+                    </contentRight>
+                </Bar>
+            </customHeader>
+            <content>
+                <Table
+                    mode= "{= ${Esercizio3>/isBtnEditVisible} ? 'None' : 'Delete'}"
+                    delete="deleteColumn"
+                    alternateRowColors ="false"
+                    id="table3"
+                    headerText="Products"
+                    class="saUiResponsiveMargin"
+                    width="auto">
+                    <headerToolbar>
+                        <Toolbar>
+                            <Title text="Products"/>
+                            <ToolbarSpacer/>
+                            <Button icon="sap-icon://add" text="Add row" press="Create" visible="{Esercizio3>/isBtnAddVisible}"/>
+                            <ToolbarSeparator visible="{Esercizio3>/isBtnAddVisible}"></ToolbarSeparator>
+                            <SearchField width="30%" search="onFilterInvoices"/>
+                        </Toolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column
+                            hAlign="End"
+                            minScreenWidth="Small"
+                            demandPopin="true">
+                            <Text text="Name"/>
+                        </Column>
+                        <Column>
+                            <Text text="Description"/>
+                        </Column>
+                        <Column
+                        minScreenWidth="small"
+                        demandPopin="true">
+                            <Text text="RelaseDate"/>
+                        </Column>
+                        <Column 
+                        minScreenWidth="Tablet"
+                        demandPopin="false">
+                            <Text text="DiscontinuedDate"/>
+                        </Column>
+                        <Column
+                        hAlign="End">
+                            <Text text="Rating"/>
+                        </Column>
+                        <Column
+                        hAlign="End">
+                            <Text text="Price"/>
+                        </Column>
+                    </columns>
+                </Table>
+            </content>
+        </Page>
+    </App>
+</mvc:View>

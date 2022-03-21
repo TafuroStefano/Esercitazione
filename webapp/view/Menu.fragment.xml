@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+		xmlns="sap.m"
+		xmlns:core="sap.ui.core">
+    <Menu itemSelected="onMenuAction">
+        <MenuItem text="base"/>
+        <MenuItem text="sap_hcb"/>
+        <MenuItem text="sap_bluecrystal"/>
+        <MenuItem text="sap_fiori_3"/>
+        <MenuItem text="sap_fiori_3_dark"/>
+        <MenuItem text="sap_fiori_3_hcb"/>
+        <MenuItem text="sap_fiori_3_hcw"/>
+        <MenuItem text="sap_belize"/>
+        <MenuItem text="sap_belize_hcb"/>
+        <MenuItem text="sap_belize_hcw"/>
+        <MenuItem text="sap_belize_plus"/>
+        <MenuItem text="sap_mvi"/>
+        <MenuItem text="sap_horizon"/>
+    </Menu>
+</core:FragmentDefinition>
