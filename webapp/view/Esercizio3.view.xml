@@ -18,7 +18,7 @@
                         <Button icon="sap-icon://edit" text="Edit table" press="Edit" visible="{Esercizio3>/isBtnEditVisible}"/>
                         <Button type="Accept" icon="sap-icon://save" text="Save" press="Save" visible="{Esercizio3>/isBtnSaveVisible}"/>
                         <Button type="Reject" icon="sap-icon://cancel" text="Cancel" press="Cancel" visible="{Esercizio3>/isBtnCancelVisible}"/>
-                        <Button id="button" text="Theme" press="onPress" ariaHasPopup="Menu"/>
+                        <Button id="button" text="Theme" press="onPress" />
                         <Button text="Export" press="Esporta" />
                     </contentRight>
                 </Bar>

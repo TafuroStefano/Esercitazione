@@ -86,7 +86,7 @@
                                 <Text text="{Data>DiscontinuedDate}"/>
                                 <Text text="{Data>Rating}"/>
                                 <ObjectNumber   
-                                    number="{Data>Price}"
+                                    number="{Data>Rating}"
                                     state="{= ${Data>Price} >= 40 ? 'Error' : (${Data>Price} &lt; 40 &amp;&amp; ${Data>Price} >= 20) ? 'Warning' : 'Success' }"/>
                                 <Button text= "Clone" press="Clone"/>
                                 <Button text= "Delete" press="DeleteMessageBoxPress"/>
