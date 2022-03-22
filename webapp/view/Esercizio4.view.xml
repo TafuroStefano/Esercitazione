@@ -1,0 +1,110 @@
+<mvc:View xmlns:vk="sap.ui.vk" controllerName="esercitazione.controller.Esercizio4"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:dnd="sap.ui.core.dnd"
+    xmlns:core="sap.ui.core"
+
+    height="100%">
+    <App id="Esercizio4">
+        <Page title="Esercizio4" 
+        enableScrolling="true" 
+        class="sapUiResponsivePadding--header sapUiResponsivePadding--footer" 
+        navButtonPress="BackHome" 
+        showNavButton="true">
+            <customHeader>
+                <Bar>
+                    <contentLeft>
+                        <Button icon="sap-icon://nav-back" press="BackHome"/>
+                    </contentLeft>
+                    <contentMiddle>
+                        <Title text="Esercizio4" level="H2"/>
+                    </contentMiddle>
+                    <contentRight>
+                        <Switch type="AcceptReject" state ="{Esercizio4>/isSwitchON}"/>
+                        <SegmentedButton selectedKey="{Esercizio4>/sKey}">
+					        <items>
+						        <SegmentedButtonItem text="Move" key="Move" />
+						        <SegmentedButtonItem text="Copy" key= "Copy" />
+					        </items>
+				</SegmentedButton>
+                    </contentRight>
+                </Bar>
+            </customHeader>
+            <content>
+                <l:Splitter>
+                    <List id= "idList" 
+                        items="{path: 'PrimaLista>/results'}">
+                        <dragDropConfig>
+                            <dnd:DragInfo
+                                sourceAggregation="items"
+                                enabled = "{Esercizio4>/isSwitchON}">
+                            </dnd:DragInfo>
+                            <dnd:DropInfo
+                                targetAggregation="items"
+                                dropEffect= "{= ${Esercizio4>/sKey} === 'Move' ? 'Move' : 'Copy' }"
+                                dropPosition="OnOrBetween"
+                                drop="onReorderItems"
+                                enabled = "{Esercizio4>/isSwitchON}">
+                                    <dnd:customData>
+                                    <core:CustomData 
+                                    key="list" 
+                                    value="PrimaLista"/>
+                                </dnd:customData>
+                            </dnd:DropInfo>
+                        </dragDropConfig>
+                        <headerToolbar>
+                            <Toolbar>
+                                <Title text="Products"/>
+                            </Toolbar>
+                        </headerToolbar>
+                        <items>
+                            <StandardListItem title="{PrimaLista>Name}" description= "{PrimaLista>Description}">
+                                <customData>
+                                    <core:CustomData 
+                                    key="list" 
+                                    value="PrimaLista"/>
+                                </customData>
+                            </StandardListItem>
+                        </items>
+                    </List>
+                    <List id= "idList2" 
+                    items="{path: 'SecondaLista>/results'}">
+                        <dragDropConfig>
+                            <dnd:DragInfo
+                                enabled = "{Esercizio4>/isSwitchON}"
+                                sourceAggregation="items">
+                            </dnd:DragInfo>
+                            <dnd:DropInfo
+                                enabled = "{Esercizio4>/isSwitchON}"
+                                targetAggregation="items"
+                                dropEffect= "{= ${Esercizio4>/sKey} === 'Move' ? 'Move' : 'Copy' }"
+                                dropPosition="OnOrBetween"
+                                drop="onReorderItems">
+                                    <dnd:customData>
+                                    <core:CustomData 
+                                    key="list" 
+                                    value="SecondaLista"/>
+                                </dnd:customData>
+                            </dnd:DropInfo>
+                        </dragDropConfig>
+                        <headerToolbar>
+                            <Toolbar>
+                                <Title text="Products"/>
+                            </Toolbar>
+                        </headerToolbar>
+                        <items>
+                            <StandardListItem title="{SecondaLista>Name}" description= "{SecondaLista>Description}">
+                                <customData>
+                                    <core:CustomData 
+                                    key="list" 
+                                    value="SecondaLista"/>
+                                </customData>
+                            </StandardListItem>
+                        </items>
+                    </List>
+                </l:Splitter>
+            </content>
+        </Page>
+    </App>
+</mvc:View>

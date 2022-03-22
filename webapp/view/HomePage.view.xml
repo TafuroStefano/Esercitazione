@@ -9,6 +9,7 @@
             <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Esercizio_1" press="Es1" frameType= "TwoByOne"/>
             <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Esercizio_2" press="Es2" frameType= "TwoByOne"/>
             <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Esercizio_3" press="Es3" frameType= "TwoByOne"/>
+            <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Esercizio_4" press="Es4" frameType= "TwoByOne"/>
         </content>
     </Page>
     </App>

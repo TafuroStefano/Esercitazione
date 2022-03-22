@@ -112,6 +112,11 @@
         "pattern": "Esercizio3",
         "name": "Esercizio3",
         "target": "Esercizio3"
+        },
+        {
+          "pattern": "Esercizio4",
+          "name": "Esercizio4",
+          "target": "Esercizio4"
         }
         
 
@@ -140,6 +145,10 @@
         "Esercizio3":{
           "viewId": "Esercizio3",
           "viewName":"Esercizio3" 
+        },
+        "Esercizio4":{
+          "viewId": "Esercizio4",
+          "viewName":"Esercizio4" 
         }
       }
     },
