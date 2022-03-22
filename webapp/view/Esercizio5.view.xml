@@ -1,0 +1,43 @@
+<mvc:View xmlns:form="sap.ui.layout.form" xmlns:vk="sap.ui.vk" controllerName="esercitazione.controller.Esercizio5"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:dnd="sap.ui.core.dnd"
+    xmlns:core="sap.ui.core"
+
+    height="100%">
+    <App id="Esercizio5">
+        <Page title="Esercizio5" 
+        enableScrolling="true" 
+        class="sapUiResponsivePadding--header sapUiResponsivePadding--footer" 
+        navButtonPress="BackHome" 
+        showNavButton="true">
+            <customHeader>
+                <Bar>
+                    <contentLeft>
+                        <Button icon="sap-icon://nav-back" press="BackHome"/>
+                    </contentLeft>
+                    <contentMiddle>
+                        <Title text="Esercizio5" level="H2"/>
+                    </contentMiddle>
+                    <contentRight>
+                        
+                    </contentRight>
+                </Bar>
+            </customHeader>
+            <content>
+                <form:SimpleForm >
+                    <Input 
+                placeholder="Enter text"
+                valueLiveUpdate= "true"
+                value="{Esercizio5>/sText}">
+                </Input>
+                    <Input 
+                editable="false"
+                value="{Esercizio5>/sText}">
+                </Input>
+                </form:SimpleForm>
+            </content>
+        </Page>
+    </App>
+</mvc:View>
