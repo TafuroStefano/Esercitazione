@@ -1,0 +1,52 @@
+<mvc:View xmlns:codeeditor="sap.ui.codeeditor" xmlns:form="sap.ui.layout.form" xmlns:vk="sap.ui.vk" controllerName="esercitazione.controller.Esercizio6"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:dnd="sap.ui.core.dnd"
+    xmlns:core="sap.ui.core"
+
+    height="100%">
+    <App id="Esercizio6">
+        <Page title="Esercizio6" 
+        enableScrolling="true" 
+        class="sapUiResponsivePadding--header sapUiResponsivePadding--footer" 
+        navButtonPress="BackHome" 
+        showNavButton="true">
+            <customHeader>
+                <Bar>
+                    <contentLeft>
+                        <Button icon="sap-icon://nav-back" press="BackHome"/>
+                    </contentLeft>
+                    <contentMiddle>
+                        <Title text="Esercizio6" level="H2"/>
+                    </contentMiddle>
+                    <contentRight>
+                        
+                    </contentRight>
+                </Bar>
+            </customHeader>
+            <content>
+                <Button text="STEP1" press="STEP1" />
+                <Button text="STEP2" press="STEP2" />
+                <Button text="STEP3" press="STEP3" />
+                <Button text="STEP4" press="STEP4" />
+                <Button text="STEP5" press="STEP5" />
+                <Button text="STEP6" press="STEP6" />
+                <Button text="STEP7" press="STEP7" />
+                <Button text="STEP8" press="STEP8" />
+                <Button text="STEP9" press="STEP9" />
+                <Button text="STEP10" press="STEP10" />
+                <Button text="STEP11" press="STEP11" />
+                <Button text="STEP12" press="STEP12" />
+                <Button text="STEP13" press="STEP13" />
+                <Button text="STEP14" press="STEP14" />
+                <Button text="STEP15" press="STEP15" />
+                <Button text="STEP16" press="STEP16" />
+                <codeeditor:CodeEditor 
+                type="json"
+                value="{Esercizio6>/sJson}">
+                </codeeditor:CodeEditor>
+            </content>
+        </Page>
+    </App>
+</mvc:View>

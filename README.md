@@ -279,9 +279,8 @@ Estrarre tutti i record dell'entità Products con ID compreso tra 2 e 6, e con p
 
 STEP 8:
 
-Estrarre tutti i record dell'entità Products con ID compreso tra 2 e 6, e con prezzo maggiore di 20.
+Estrarre solamente i campi: ID, Name e Price dell'entità Products con ID compreso tra 2 e 6, e con prezzo maggiore di 20.
 
-Estrarre solamente i campi: ID, Name e Price.
 
  
 
@@ -324,3 +323,7 @@ Estrarre tutti i record dell'entità Products che contengono nella descrizione i
 STEP 15:
 
 Estrarre la navigation Category dell'entità Products con ID uguale a 4.
+
+STEP 16:
+
+Estrarre tutti i record dell' entità Products e il loro contegio.

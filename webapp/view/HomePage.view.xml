@@ -11,6 +11,7 @@
             <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Esercizio_3" press="Es3" frameType= "TwoByOne"/>
             <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Esercizio_4" press="Es4" frameType= "TwoByOne"/>
             <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Esercizio_5" press="Es5" frameType= "TwoByOne"/>
+            <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Esercizio_6" press="Es6" frameType= "TwoByOne"/>
         </content>
     </Page>
     </App>

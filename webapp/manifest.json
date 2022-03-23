@@ -122,6 +122,11 @@
           "pattern": "Esercizio5",
           "name": "Esercizio5",
           "target": "Esercizio5"
+        },
+        {
+          "pattern": "Esercizio6",
+          "name": "Esercizio6",
+          "target": "Esercizio6"
         }
         
 
@@ -158,6 +163,10 @@
         "Esercizio5":{
           "viewId": "Esercizio5",
           "viewName":"Esercizio5" 
+        },
+        "Esercizio6":{
+          "viewId": "Esercizio6",
+          "viewName":"Esercizio6" 
         }
       }
     },
