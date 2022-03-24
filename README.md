@@ -327,3 +327,23 @@ Estrarre la navigation Category dell'entità Products con ID uguale a 4.
 STEP 16:
 
 Estrarre tutti i record dell' entità Products e il loro contegio.
+
+------------------------------------------------------------------------------------------
+
+Fiori - Esercizio 7
+
+venerdì 18 marzo 2022
+
+12:48
+
+ESERCIZIO 7:
+
+ 
+
+STEP 1:
+
+Riprendere l'Esercizio 3 e gestire correttamente le date, per l'inserimento di nuove righe e nel salvataggio.
+
+Verificare e gestire eventuali messaggi di ritorno dalla submitChanges (scatta il success anche in caso di error).
+
+Verificare e gestire i numeri correttamente!
