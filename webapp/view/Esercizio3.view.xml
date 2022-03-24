@@ -3,7 +3,6 @@
     xmlns:mvc="sap.ui.core.mvc"
 	xmlns:form="sap.ui.layout.form"
     height="100%">
-    
     <App id="Esercizio3">
         <Page enableScrolling="true" class="sapUiResponsivePadding--header sapUiResponsivePadding--footer">
             <customHeader>
@@ -36,8 +35,8 @@
                         <Toolbar>
                             <Title text="Products"/>
                             <ToolbarSpacer/>
-                            <Button icon="sap-icon://add" text="Add row" press="Create" visible="{Esercizio3>/isBtnAddVisible}"/>
-                            <ToolbarSeparator visible="{Esercizio3>/isBtnAddVisible}"></ToolbarSeparator>
+                            <Button icon="sap-icon://add" text="Add row" press="Create" visible="{Esercizio3>/isBtnSaveVisible}"/>
+                            <ToolbarSeparator visible="{Esercizio3>/isBtnSaveVisible}"></ToolbarSeparator>
                             <SearchField width="30%" search="onFilterInvoices"/>
                         </Toolbar>
                     </headerToolbar>

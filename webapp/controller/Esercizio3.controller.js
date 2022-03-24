@@ -14,8 +14,8 @@ sap.ui.define([
     "sap/m/DatePicker",
     "sap/m/MenuItem",
     'sap/ui/core/Fragment',
-	"sap/ui/export/Spreadsheet",
-	"sap/ui/core/util/Export",
+    "sap/ui/export/Spreadsheet",
+    "sap/ui/core/util/Export",
     "sap/ui/core/util/ExportTypeCSV",
     "sap/m/Select",
     "sap/ui/layout/form/SimpleForm",
@@ -26,7 +26,7 @@ sap.ui.define([
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
     function (Controller, JSONModel, Filter, FilterOperator, ColumnListItem, Text, Input, MessageBox, MessageToast, Dialog,
-        Label, Button, DatePicker, MenuItem, Fragment,Spreadsheet, Export, ExportTypeCSV,Select, SimpleForm, Item) {
+        Label, Button, DatePicker, MenuItem, Fragment, Spreadsheet, Export, ExportTypeCSV, Select, SimpleForm, Item) {
         "use strict";
 
         return Controller.extend("esercitazione.controller.Esercizio3", {
@@ -41,7 +41,7 @@ sap.ui.define([
                     idTable: 0,
                     exportType: [{ key: "EXCEL", value: "Excel" }, { key: "CSV", value: "CSV" }],
                     themeSelected: ""
-                    
+
                 });
 
                 this.getView().setModel(oModel, "Esercizio3");
@@ -64,7 +64,7 @@ sap.ui.define([
 
                         for (let index = 0; index < oRetrievedResult.results.length; index++) {
 
-                            if (!oRetrievedResult.results[index].ReleaseDate ||
+                            /* if (!oRetrievedResult.results[index].ReleaseDate ||
                                 oRetrievedResult.results[index].ReleaseDate === undefined) {
                                 oRetrievedResult.results[index].ReleaseDate = "";
                             } else {
@@ -84,7 +84,7 @@ sap.ui.define([
                                     month: "2-digit",
                                     day: "2-digit"
                                 })
-                            }
+                            } */
                             oRetrievedResult.results[index].isDeleted = false;
                             oRetrievedResult.results[index].idTable = iContatore;
                             iContatore++;
@@ -129,7 +129,6 @@ sap.ui.define([
                         and: false
                     });
                 }
-                //aFilter0.push(new Filter("Name", FilterOperator.Contains, sQuery));
                 var oList = this.byId("table3");
                 var oBinding = oList.getBinding("items")
                 oBinding.filter(oFilter);
@@ -151,11 +150,13 @@ sap.ui.define([
                         }), new Text({
                             text: "{Data>Description}"
                         }),
-                        new Text({
-                            text: "{Data>ReleaseDate}"
+                        new DatePicker({
+                            enabled: false,
+                            value: "{path:'Data>ReleaseDate', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true}}"
                         }),
-                        new Text({
-                            text: "{Data>DiscontinuedDate}"
+                        new DatePicker({
+                            enabled: false,
+                            value: "{path:'Data>DiscontinuedDate', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true}}"
                         }),
                         new Text({
                             text: "{Data>Rating}"
@@ -190,17 +191,21 @@ sap.ui.define([
                         }), new Input({
                             value: "{Data>Description}"
                         }),
-                        new Input({
-                            value: "{Data>ReleaseDate}"
+                        new DatePicker({
+                            value: "{path:'Data>ReleaseDate', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true}}",
+                            enabled: true
+                        }),
+                        new DatePicker({
+                            value: "{path:'Data>DiscontinuedDate', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true}}",
+                            enabled: true
                         }),
                         new Input({
-                            value: "{Data>DiscontinuedDate}"
+                            value: "{Data>Rating}",
+                            type: "Number"
                         }),
                         new Input({
-                            value: "{Data>Rating}"
-                        }),
-                        new Input({
-                            value: "{Data>Price}"
+                            value: "{Data>Price}",
+                            type: "Number"
                         })
                         ]
                     }),
@@ -235,8 +240,8 @@ sap.ui.define([
                         this.getView().getModel("OdataPubblic").create("/Products", {
                             Name: oEditTable.results[i].Name,
                             Description: oEditTable.results[i].Description,
-                            //ReleaseDate: oEditTable.results[i].ReleaseDate,
-                            //DiscontinuedDate: oEditTable.results[i].DiscontinuedDate,
+                            ReleaseDate: oEditTable.results[i].ReleaseDate,
+                            DiscontinuedDate: oEditTable.results[i].DiscontinuedDate,
                             Rating: oEditTable.results[i].Rating,
                             Price: oEditTable.results[i].Price.toString(),
                             ID: iIdCounter
@@ -287,8 +292,8 @@ sap.ui.define([
                         this.getView().getModel("OdataPubblic").update(sPath, {
                             Name: oEditTable.results[i].Name,
                             Description: oEditTable.results[i].Description,
-                            //ReleaseDate: oEditTable.results[i].ReleaseDate,
-                            //DiscontinuedDate: oEditTable.results[i].DiscontinuedDate,
+                            ReleaseDate: oEditTable.results[i].ReleaseDate,
+                            DiscontinuedDate: oEditTable.results[i].DiscontinuedDate,
                             Rating: oEditTable.results[i].Rating,
                             Price: oEditTable.results[i].Price
                         }, {
@@ -311,22 +316,51 @@ sap.ui.define([
                     this.getView().getModel("OdataPubblic").submitChanges({
                         groupId: "group1",
                         success: function (oDataResponse) {
+                            var oErrorMessage;
+                            var aMessages = [];
+
+                            if (oDataResponse.__batchResponses) {
+                                for (var i = 0; i < oDataResponse.__batchResponses.length; i++) {
+                                    if (oDataResponse.__batchResponses[i].__changeResponses) {
+                                        for (var index = 0; index < oDataResponse.__batchResponses[i].__changeResponses.length; index++) {
+                                            if (oDataResponse.__batchResponses[i].__changeResponses[index]) {
+                                                aMessages.push(oDataResponse.__batchResponses[i].__changeResponses[index]);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            if (aMessages.length > 0) {
+                                if (aMessages.find(x => x.statusCode)) {
+                                    oErrorMessage = aMessages.find(x => x.statusCode > 299 || x.statusCode < 200);
+                                } else {
+                                    oErrorMessage = aMessages.find(x => x.response.statusCode > 299 || x.response.statusCode < 200);
+                                }
+                            }
+
                             this.getView().setBusy(false);
-                            MessageToast.show("Salvato");
-                            this.getView().getModel("Esercizio3").setProperty("/isBtnEditVisible", true);
-                            this.getView().getModel("Esercizio3").setProperty("/isBtnSaveVisible", false);
-                            this.getView().getModel("Esercizio3").setProperty("/isBtnCancelVisible", false);
-                            this.getView().getModel("Esercizio3").setProperty("/isBtnAddVisible", true);
-                            this.onAfterRendering();
+
+                            if (oErrorMessage) {
+
+                                this.getView().setBusy(false);
+                                MessageToast.show("Errore salvataggio");
+                            }
+                            else {
+                                this.getView().setBusy(false);
+                                MessageToast.show("Salvato");
+                                this.getView().getModel("Esercizio3").setProperty("/isBtnEditVisible", true);
+                                this.getView().getModel("Esercizio3").setProperty("/isBtnSaveVisible", false);
+                                this.getView().getModel("Esercizio3").setProperty("/isBtnCancelVisible", false);
+                                this.getView().getModel("Esercizio3").setProperty("/isBtnAddVisible", true);
+                                this.onAfterRendering();
+                            }
+
                         }.bind(this),
                         error: function () {
                             this.getView().setBusy(false);
                             MessageToast.show("Errore salvataggio");
-                            this.getView().getModel("Esercizio3").setProperty("/isBtnEditVisible", true);
-                            this.getView().getModel("Esercizio3").setProperty("/isBtnSaveVisible", false);
-                            this.getView().getModel("Esercizio3").setProperty("/isBtnCancelVisible", false);
-                            this.getView().getModel("Esercizio3").setProperty("/isBtnAddVisible", true);
-                            this.bindTable();
+
+
                         }.bind(this)
 
                     });
@@ -405,8 +439,8 @@ sap.ui.define([
                 var oRetrievedResult = {
                     Name: "",
                     Description: "",
-                    ReleaseDate: "",
-                    DiscontinuedDate: "",
+                    ReleaseDate: null,
+                    DiscontinuedDate: null,
                     Rating: 0,
                     Price: 0,
                     beginButtonEnable: false,
@@ -450,7 +484,7 @@ sap.ui.define([
                     new Label({
                         text: "ReleaseDate"
                     }), new DatePicker({
-                        value: "{Empity>/ReleaseDate}",
+                        value: "{path:'Empity>/ReleaseDate', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true}}",
                         enabled: true,
                         placeholder: "ReleaseDate",
                         change: function (oEventLiveChange) {
@@ -460,7 +494,7 @@ sap.ui.define([
                     new Label({
                         text: "DiscontinuedDate"
                     }), new DatePicker({
-                        value: "{Empity>/DiscontinuedDate}",
+                        value: "{path:'Empity>/DiscontinuedDate', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true}}",
                         enabled: true,
                         placeholder: "DiscontinuedDate",
                         change: function (oEventLiveChange) {
@@ -484,7 +518,7 @@ sap.ui.define([
                     new Label({
                         text: "Price"
                     }), new Input({
-                        type: "Number",
+                        //type: "Number",
                         value: "{Empity>/Price}",
                         enabled: true,
                         required: true,
@@ -584,13 +618,13 @@ sap.ui.define([
                 }
 
                 sItemPath = sItemPath.substr(0, sItemPath.lastIndexOf(" > "));
-                
-                sap.ui.getCore().applyTheme(sItemPath); 
+
+                sap.ui.getCore().applyTheme(sItemPath);
             },
-            
+
             onExcelExport: function () {
                 var aLogs = this.getView().getModel("Data").getData();
-    
+
                 var oSettings = {
                     workbook: {
                         columns: this._createColumnConfig()
@@ -598,7 +632,7 @@ sap.ui.define([
                     dataSource: aLogs.results,
                     fileName: this._ExportfileName()
                 };
-    
+
                 var oSheet = new Spreadsheet(oSettings);
                 oSheet.build().then(function () {
                     MessageToast.show(this.getResourceBundle().getText("LogsExportCompleted"), {
@@ -608,7 +642,7 @@ sap.ui.define([
                     .finally(oSheet.destroy());
             },
             _createColumnConfig: function () {
-    
+
                 return [{
                     label: "Name",
                     property: "Name",
@@ -630,21 +664,21 @@ sap.ui.define([
                 },]
             },
             _ExportfileName: function () {
-                
+
                 Date.prototype.yyyymmdd = function () {
                     var mm = this.getMonth() + 1;
                     var dd = this.getDate();
                     return [(dd > 9 ? "" : "0") + dd, (mm > 9 ? "" : "0") + mm, this.getFullYear()].join("");
                 };
-    
+
                 var oDate = new Date();
                 return "Logs_" + oDate.yyyymmdd() + "_" + oDate.getHours() + oDate.getMinutes() + oDate.getSeconds();
             },
             onCSVExport: function () {
                 var aLogs = this.getView().getModel("Data").getData();
-    
+
                 var oMessagesModel = new JSONModel(aLogs.results);
-    
+
                 var oExport = new Export({
                     exportType: new ExportTypeCSV({
                         fileExtension: "csv",
@@ -686,7 +720,7 @@ sap.ui.define([
                         }
                     }]
                 });
-    
+
                 oExport.saveFile(this._ExportfileName()).catch(function () {
                     MessageToast.show(this.getResourceBundle().getText("LogsExportError"), {
                         duration: 3000
@@ -698,7 +732,7 @@ sap.ui.define([
                     oExport.destroy();
                 }.bind(this));
             },
-            Esporta: function() {
+            Esporta: function () {
                 var oDialog = new Dialog({
                     contentWidth: "40%",
                     title: "Esportare la tabella?",
@@ -743,7 +777,7 @@ sap.ui.define([
                             } else {
                                 this.onCSVExport()
                             }
-                            
+
 
                         }.bind(this)
                     }),
@@ -763,7 +797,7 @@ sap.ui.define([
                     }.bind(this)
                 });
                 oDialog.open();
-             }
+            }
         });
 
 
